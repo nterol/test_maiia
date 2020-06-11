@@ -1,6 +1,8 @@
 import React, { Suspense, lazy, useCallback, memo } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
 import styles from "../styles/navigation.module.scss";
+
 import { nextPage, prevPage, goToPage } from "../../redux/actionTypes";
 import { selectNavigation } from "../../redux/selectors";
 
@@ -50,6 +52,7 @@ function Navigation() {
           <ButtonPrevious dispatchPage={dispatchPrevPage} />
         )}
       </Suspense>
+
       {canDisplayMinusOne && (
         <button
           className={styles.pageButton}
@@ -67,6 +70,7 @@ function Navigation() {
           {currentPage + 1}
         </button>
       )}
+
       <Suspense
         fallback={
           <span role="img" aria-label="next">

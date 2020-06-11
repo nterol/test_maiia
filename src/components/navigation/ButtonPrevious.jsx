@@ -5,7 +5,7 @@ import styles from "../styles/navigation-button.module.scss";
 
 function ButtonPrevious() {
   return (
-    <button className={styles.navButton}>
+    <button className={styles.navButton} >
       <IoIosArrowRoundBack size="2em" color="" />
     </button>
   );

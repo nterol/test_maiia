@@ -7,8 +7,12 @@ function shoppingBagReducer(state = initialState, { type, payload }) {
     case addArticle: {
       return [...state, payload];
     }
-    case removeArticle:
-      return state.filter(({ articleId }) => articleId !== payload);
+    case removeArticle: {
+      const n = state.filter((articleId) => articleId !== payload);
+
+      console.log(payload, state, n);
+      return n;
+    }
 
     default:
       return state;

@@ -9,10 +9,8 @@ function navigationReducer(state = initialState, { type, payload }) {
         ...state,
         maxPagesReached: payload,
       };
-    case nextPage: {
-      console.log("COUCOUCOU");
+    case nextPage:
       return { ...state, currentPage: state.currentPage + 1 };
-    }
 
     case prevPage:
       return { ...state, currentPage: state.currentPage - 1 };

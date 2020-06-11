@@ -27,12 +27,14 @@ function Article({ title, thumbnailUrl, articleId }) {
 
   return (
     <article className={styles.article}>
-      <h3>{title}</h3>
       <ThumbnailWithSkeleton
         imgLoaded={imgLoaded}
         currentRef={thumbnailRef.current}
       />
-      <ShopButton articleId={articleId} />
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <h3>{title}</h3>
+        <ShopButton articleId={articleId} />
+      </div>
     </article>
   );
 }

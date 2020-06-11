@@ -1,11 +1,13 @@
-import React from "react";
+import React, { memo } from "react";
+import { useSelector } from "react-redux";
 
 import { IoIosBasket } from "react-icons/io";
 
 import styles from "../styles/header.module.scss";
+import { selectShoppingBagLength } from "../../redux/selectors";
 
 function Header() {
-  const basketCount = 4;
+  const basketCount = useSelector(selectShoppingBagLength);
   return (
     <header>
       <h1>Stuff</h1>
@@ -22,4 +24,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default memo(Header);
