@@ -17,8 +17,6 @@
     "react-scripts": "3.4.1",
     "react-spring": "^8.0.27",
     "redux": "^4.0.5",
-    "redux-saga": "^1.1.3",
-    "redux-saga-routines": "^3.2.3",
     "reselect": "^4.0.0"
   },
   "scripts": {
