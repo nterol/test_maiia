@@ -1,0 +1,14 @@
+hr {
+  height: 6px;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+
+  &:last-child {
+    margin-right: 60%;
+  }
+
+  &.thumbnail {
+    padding-bottom: 50%;
+  }
+}

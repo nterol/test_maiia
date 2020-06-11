@@ -1,0 +1,9 @@
+@import "./neomorphic-button.scss";
+
+.navButton {
+  @include neomorphic-button(4em, 2em);
+}
+
+.pageButton {
+  @include neomorphic-button(2em, 2em);
+}

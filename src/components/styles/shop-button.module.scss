@@ -1,0 +1,5 @@
+@import "./neomorphic-button.scss";
+
+.shopButton {
+  @include neomorphic-button(2em, 2em);
+}

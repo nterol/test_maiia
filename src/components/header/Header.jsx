@@ -2,7 +2,7 @@ import React from "react";
 
 import { IoIosBasket } from "react-icons/io";
 
-import styles from "./header.module.scss";
+import styles from "../styles/header.module.scss";
 
 function Header() {
   const basketCount = 4;
