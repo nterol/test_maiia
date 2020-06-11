@@ -1,12 +1,10 @@
-import React, { useCallback, memo, useMemo } from "react";
-import { useSelector, useDispatch, connect } from "react-redux";
+import React, { useCallback, memo } from "react";
+import { useDispatch, connect } from "react-redux";
 
-import { number } from "prop-types";
+import { number, bool } from "prop-types";
 
 import styles from "../styles/shop-button.module.scss";
 import { addArticle, removeArticle } from "../../redux/actionTypes";
-import { createSelector } from "reselect";
-import Shop from "../../pages/Shop";
 
 // this is why I'd like to try recoil in prod
 
@@ -52,7 +50,7 @@ function ShopButton({ articleId, isInShoppingBag }) {
           ? dispatchRemoveFromShoppingBag(articleId)
           : dispatchAddToShoppingBag(articleId)
       }
-      className={styles.shopButton}
+      className={styles.test}
     >
       {isInShoppingBag ? "-" : "+"}
     </button>
@@ -61,14 +59,12 @@ function ShopButton({ articleId, isInShoppingBag }) {
 
 ShopButton.propTypes = {
   articleId: number.isRequired,
+  isInShoppingBag: bool.isRequired,
 };
 
-const mapStateToProps = (state, { articleId }) => {
-  console.log(state);
-  return {
-    isInShoppingBag: state.shoppingBag.findIndex((e) => e === articleId) > -1,
-  };
-};
+const mapStateToProps = (state, { articleId }) => ({
+  isInShoppingBag: state.shoppingBag.findIndex((e) => e === articleId) > -1,
+});
 
 const withConnect = connect(mapStateToProps);
 

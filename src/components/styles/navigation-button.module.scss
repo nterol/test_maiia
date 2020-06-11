@@ -7,3 +7,10 @@
 .pageButton {
   @include neomorphic-button(2em, 2em);
 }
+
+
+.linkButton {
+  @include neomorphic-button(4em, 3em);
+  padding: 1em;
+  margin-top: 1em;
+}

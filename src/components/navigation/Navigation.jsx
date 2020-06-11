@@ -27,8 +27,7 @@ function Navigation() {
     [dispatch],
   );
 
-  // too many "complex" conditions can make JSX reading hard
-  // let's abstract them
+  // too many "complex" conditions can make JSX hard to read
 
   const canDisplayButtonNext =
     !maxPagesReached || currentPage < maxPagesReached;
@@ -38,6 +37,8 @@ function Navigation() {
   const canDisplayPlusOne =
     !maxPagesReached || currentPage + 1 < maxPagesReached;
   const canDisplayMinusOne = currentPage - 1 > 1;
+
+  const canDisplayBackToFirstPage = currentPage >= 15
 
   return (
     <div className={styles.navigationContainer}>
@@ -52,6 +53,14 @@ function Navigation() {
           <ButtonPrevious dispatchPage={dispatchPrevPage} />
         )}
       </Suspense>
+      {canDisplayBackToFirstPage && (
+        <button
+          className={styles.pageButton}
+          onClick={() => dispatchSpecificPage(1)}
+        >
+          1
+        </button>
+      )}
 
       {canDisplayMinusOne && (
         <button
@@ -65,7 +74,7 @@ function Navigation() {
       {canDisplayPlusOne && (
         <button
           className={styles.pageButton}
-           onClick={() => dispatchSpecificPage(currentPage + 1)}
+          onClick={() => dispatchSpecificPage(currentPage + 1)}
         >
           {currentPage + 1}
         </button>
