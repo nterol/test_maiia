@@ -18,13 +18,8 @@ function Header() {
         <h1>Lambda shop</h1>
       </Link>
       <button className={styles.cart}>
-        {/* 
-        Normally to pass shopping information from a page to another I would use localstorage. 
-        But it seems a bit overkill for such an app. 
-        So I'd rather use this trick to pass the data. 
-        */}
         <a
-          href={`/cart/${shoppingBag.length ?  shoppingBag.join("-") : ""}`}
+          href="/cart"
           className={basketCount && styles.badge}
           data-count={basketCount}
         >

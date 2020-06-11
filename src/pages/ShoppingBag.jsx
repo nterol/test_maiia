@@ -1,16 +1,17 @@
 import React from "react";
 import { useQuery } from "react-query";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 import getShoppingBag from "../api/getShoppingBag";
 import Skeletons from "../components/skeleton/Skeletons";
 import styles from "../components/styles/layout.module.scss";
 import { linkButton } from "../components/styles/navigation-button.module.scss";
 import Article from "../components/article/Article";
-import { Link, useParams } from "react-router-dom";
-import { IoIosArrowRoundBack } from "react-icons/io";
 
 function Bag({ shoppingBag }) {
-  const query = "id=" + shoppingBag.split("-").join("&id=");
+  const query = "id=" + shoppingBag.join("&id=");
 
   const { status, data } = useQuery(["shoppingbag", query], getShoppingBag);
   return (
@@ -35,12 +36,11 @@ function Bag({ shoppingBag }) {
 }
 
 function ShoppingBag() {
-  const { shoppingBag } = useParams();
+  const shoppingBag = useSelector((state) => state.shoppingBag);
 
+  console.log(shoppingBag);
 
-  console.log("coucou", shoppingBag)
-
-  if (!shoppingBag)
+  if (!shoppingBag.length)
     return (
       <section style={{ height: "50vh" }}>
         <div style={{ marginBottom: "3em" }}>
