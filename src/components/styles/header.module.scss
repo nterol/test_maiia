@@ -1,13 +1,10 @@
 @import "./neomorphic-button.scss";
+@import "./variable.scss";
 
 header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  h1 {
-    text-shadow: 1px 1px 1px #fff;
-  }
 }
 
 .cart {
@@ -21,7 +18,7 @@ header {
 .badge:after {
   content: attr(data-count);
   position: absolute;
-  background: #ff6600;
+  background: $notification;
   height: 1rem;
   bottom: 1.25rem;
   left: 1.5rem;
@@ -30,8 +27,8 @@ header {
   line-height: 1rem;
   font-size: 0.75rem;
   border-radius: 50%;
-  color: white;
-  border: 1px solid #ff6600;
+  color: $up-shadow;
+  border: 1px solid $notification;
   font-family: sans-serif;
   font-weight: bold;
   z-index: 10;

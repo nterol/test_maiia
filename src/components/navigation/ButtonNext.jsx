@@ -4,16 +4,22 @@ import { func } from "prop-types";
 
 import styles from "../styles/navigation-button.module.scss";
 
-function ButtonPrevious({ dispatchPage }) {
+function ButtonNext({ dispatchPage }) {
   return (
-    <button onClick={() => dispatchPage()} className={styles.navButton}>
+    <button
+      data-testid="button-next"
+      onClick={() => {
+        dispatchPage();
+      }}
+      className={styles.navButton}
+    >
       <IoIosArrowRoundForward size="2em" color="" />
     </button>
   );
 }
 
-ButtonPrevious.propTypes = {
+ButtonNext.propTypes = {
   dispatchPage: func.isRequired,
 };
 
-export default ButtonPrevious;
+export default ButtonNext;

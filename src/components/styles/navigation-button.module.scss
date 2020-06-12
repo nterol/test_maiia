@@ -6,8 +6,8 @@
 
 .pageButton {
   @include neomorphic-button(2em, 2em);
+  // a utility class would be better
 }
-
 
 .linkButton {
   @include neomorphic-button(4em, 3em);

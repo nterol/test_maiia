@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 
 import styles from "../styles/navigation.module.scss";
 
-import { nextPage, prevPage, goToPage } from "../../redux/actionTypes";
+import { nextPage, prevPage } from "../../redux/actionTypes";
 import { selectNavigation } from "../../redux/selectors";
+import GoToPageButton from "./GoToPageButton";
 
 const ButtonPrevious = lazy(() => import("./ButtonPrevious"));
 const ButtonNext = lazy(() => import("./ButtonNext"));
@@ -15,17 +16,13 @@ function Navigation() {
 
   // dispatch can cause useless re-render they must be wrapped in useCallBack
 
-  const dispatchNextPage = useCallback(() => dispatch({ type: nextPage }), [
-    dispatch,
-  ]);
+  const dispatchNextPage = useCallback(() => {
+    dispatch({ type: nextPage });
+  }, [dispatch]);
+
   const dispatchPrevPage = useCallback(() => dispatch({ type: prevPage }), [
     dispatch,
   ]);
-
-  const dispatchSpecificPage = useCallback(
-    (pageNumber) => dispatch({ type: goToPage, payload: pageNumber }),
-    [dispatch],
-  );
 
   // too many "complex" conditions can make JSX hard to read
 
@@ -38,7 +35,7 @@ function Navigation() {
     !maxPagesReached || currentPage + 1 < maxPagesReached;
   const canDisplayMinusOne = currentPage - 1 > 1;
 
-  const canDisplayBackToFirstPage = currentPage >= 15
+  const canDisplayBackToFirstPage = currentPage >= 10;
 
   return (
     <div className={styles.navigationContainer}>
@@ -54,31 +51,15 @@ function Navigation() {
         )}
       </Suspense>
       {canDisplayBackToFirstPage && (
-        <button
-          className={styles.pageButton}
-          onClick={() => dispatchSpecificPage(1)}
-        >
-          1
-        </button>
+        <>
+          <GoToPageButton page={1} />
+          <GoToPageButton page={Math.ceil(currentPage / 2)}>...</GoToPageButton>
+        </>
       )}
 
-      {canDisplayMinusOne && (
-        <button
-          className={styles.pageButton}
-          onClick={() => dispatchSpecificPage(currentPage - 1)}
-        >
-          {currentPage - 1}
-        </button>
-      )}
-      <div>{currentPage}</div>
-      {canDisplayPlusOne && (
-        <button
-          className={styles.pageButton}
-          onClick={() => dispatchSpecificPage(currentPage + 1)}
-        >
-          {currentPage + 1}
-        </button>
-      )}
+      {canDisplayMinusOne && <GoToPageButton page={currentPage - 1} />}
+      <div className="carved-light">{currentPage}</div>
+      {canDisplayPlusOne && <GoToPageButton page={currentPage + 1} />}
 
       <Suspense
         fallback={

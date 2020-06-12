@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
-import { string, number, bool } from "prop-types";
 
 import styles from "../styles/article.module.scss";
 import { thumbnail } from "../styles/skeleton.module.scss";
-import ShopButton from './ShopButton'
+import ShopButton from "./ShopButton";
 
 const ThumbnailWithSkeleton = ({ imgLoaded, currentRef }) =>
   imgLoaded ? (
@@ -18,17 +17,17 @@ const ThumbnailWithSkeleton = ({ imgLoaded, currentRef }) =>
     <hr className={thumbnail} />
   );
 
-function Article({ title, thumbnailUrl, articleId, noButton }) {
+function Article({ title, imageUrl, articleId }) {
   const thumbnailRef = useRef(null);
 
   const [imgLoaded, setImgLoaded] = useState(false);
 
   useEffect(() => {
     thumbnailRef.current = new Image();
-    thumbnailRef.current.src = thumbnailUrl;
+    thumbnailRef.current.src = imageUrl;
     if (thumbnailRef.current.complete) setImgLoaded(true);
     else thumbnailRef.current.onload = () => setImgLoaded(true);
-  }, [thumbnailUrl]);
+  }, [imageUrl]);
 
   return (
     <article className={styles.article}>
@@ -37,21 +36,9 @@ function Article({ title, thumbnailUrl, articleId, noButton }) {
         currentRef={thumbnailRef.current}
       />
       <h3>{title}</h3>
-
-      {!noButton && <ShopButton articleId={articleId} />}
+      <ShopButton articleId={articleId} />
     </article>
   );
 }
-
-Article.defaultProps = {
-  noButton: false,
-};
-
-Article.propTypes = {
-  title: string.isRequired,
-  thumbnailUrl: string.isRequired,
-  articleId: number.isRequireed,
-  noButton: bool,
-};
 
 export default Article;

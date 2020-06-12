@@ -1,42 +1,53 @@
-import React, { memo } from "react";
+import React, { memo, useCallback, useEffect } from "react";
 import { useQuery } from "react-query";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-import Article from "../components/article/Article";
-import styles from "../components/styles/layout.module.scss";
 import getArticles from "../api/getArticles";
 import Navigation from "../components/navigation";
-import { selectCurrentPage } from "../redux/selectors";
-import Skeletons from "../components/skeleton/Skeletons";
+import { selectNavigation } from "../redux/selectors";
+import { setMaxPage } from "../redux/actionTypes";
+import GoToPageButton from "../components/navigation/GoToPageButton";
+import ArticleGrid from "../components/article-grid/ArticleGrid";
 
 function Shop() {
-  const currentPage = useSelector(selectCurrentPage);
+  const { currentPage, maxPagesReached } = useSelector(selectNavigation);
   const { status, data } = useQuery(["articles", currentPage], getArticles);
+
+  const dispatch = useDispatch();
+
+  const dispatchMaxPagesReached = useCallback(
+    (maxPage) => dispatch({ type: setMaxPage, payload: maxPage }),
+    [dispatch],
+  );
+
+  useEffect(() => {
+    if (status === "success" && !data.length)
+      dispatchMaxPagesReached(currentPage);
+  }, [status, data, dispatchMaxPagesReached, currentPage]);
+
+  const maxPageIsReached = !!maxPagesReached && currentPage === maxPagesReached;
 
   return (
     <>
-      <section className={styles.grid}>
-        {status === "loading" ? (
-          <Skeletons />
-        ) : status === "error" ? (
-          <div>There was an error...</div>
-        ) : (
-          data.map(({ id, title, thumbnailUrl }) => (
-            <Article
-              key={id}
-              title={title}
-              thumbnailUrl={thumbnailUrl}
-              articleId={id}
-            />
-          ))
+      <ArticleGrid status={status} data={data}>
+        {maxPageIsReached && (
+          <div>
+            It seems we're out of article{" "}
+            <span role="img" aria-label="out of article">
+              😢
+            </span>
+            <br />
+            ... Would like to return to first page ? <GoToPageButton page={1} />
+          </div>
         )}
-      </section>
-      <section>
-        <Navigation />
-      </section>
+      </ArticleGrid>
+      {status === "success" && !maxPageIsReached && (
+        <section>
+          <Navigation />
+        </section>
+      )}
     </>
   );
 }
 
 export default memo(Shop);
-  
