@@ -11,13 +11,11 @@ In the project directory, you can run:
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
 ### `npm run server`
 
 This will launch a mock server on port 3001.<br />
 The server will serve the content of the `db.json` file.
+You can access db through [http://localhost:3001/article](http://localhost:3000)
 
 ### `npm run start:all`
 
@@ -40,4 +38,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
-You don't need to do it on this projet really. 
+You don't need to do it on this project really. 

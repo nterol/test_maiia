@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
 
 import styles from "../styles/article.module.scss";
 import { thumbnail } from "../styles/skeleton.module.scss";
@@ -31,7 +32,13 @@ function Article({ title, imageUrl, articleId }) {
   }, [imageUrl]);
 
   return (
-    <article className={styles.article}>
+    <motion.article
+    whileHover={{ scale: 1.05 }}
+      initial={{ y: 50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className={styles.article}
+    >
       <ThumbnailWithSkeleton
         imgLoaded={imgLoaded}
         currentRef={thumbnailRef.current}
@@ -48,7 +55,7 @@ function Article({ title, imageUrl, articleId }) {
       </div>
 
       <ShopButton articleId={articleId} />
-    </article>
+    </motion.article>
   );
 }
 

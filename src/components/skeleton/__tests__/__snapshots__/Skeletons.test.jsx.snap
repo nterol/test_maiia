@@ -1,9 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should match snapshot 1`] = `
-Array [
+<section
+  className="grid"
+  style={Object {}}
+>
   <article
     className="article"
+    style={
+      Object {
+        "opacity": 0,
+        "transform": "translateY(-100px) translateZ(0)",
+      }
+    }
   >
     <hr
       className="thumbnail"
@@ -17,38 +26,15 @@ Array [
     <hr
       className="hr"
     />
-  </article>,
+  </article>
   <article
     className="article"
-  >
-    <hr
-      className="thumbnail"
-    />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
-  </article>,
-  <article
-    className="article"
-  >
-    <hr
-      className="thumbnail"
-    />
-    <hr
-      className="hr"
-    />
-  </article>,
-  <article
-    className="article"
+    style={
+      Object {
+        "opacity": 0,
+        "transform": "translateY(-100px) translateZ(0)",
+      }
+    }
   >
     <hr
       className="thumbnail"
@@ -65,15 +51,31 @@ Array [
     <hr
       className="hr"
     />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
-  </article>,
+  </article>
   <article
     className="article"
+    style={
+      Object {
+        "opacity": 0,
+        "transform": "translateY(-100px) translateZ(0)",
+      }
+    }
+  >
+    <hr
+      className="thumbnail"
+    />
+    <hr
+      className="hr"
+    />
+  </article>
+  <article
+    className="article"
+    style={
+      Object {
+        "opacity": 0,
+        "transform": "translateY(-100px) translateZ(0)",
+      }
+    }
   >
     <hr
       className="thumbnail"
@@ -93,6 +95,37 @@ Array [
     <hr
       className="hr"
     />
-  </article>,
-]
+    <hr
+      className="hr"
+    />
+  </article>
+  <article
+    className="article"
+    style={
+      Object {
+        "opacity": 0,
+        "transform": "translateY(-100px) translateZ(0)",
+      }
+    }
+  >
+    <hr
+      className="thumbnail"
+    />
+    <hr
+      className="hr"
+    />
+    <hr
+      className="hr"
+    />
+    <hr
+      className="hr"
+    />
+    <hr
+      className="hr"
+    />
+    <hr
+      className="hr"
+    />
+  </article>
+</section>
 `;

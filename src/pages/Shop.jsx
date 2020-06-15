@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect } from "react";
+import React, { memo, useCallback, useEffect, Suspense } from "react";
 import { useQuery } from "react-query";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -41,11 +41,13 @@ function Shop() {
           </div>
         )}
       </ArticleGrid>
-      {status === "success" && !maxPageIsReached && (
-        <section>
-          <Navigation />
-        </section>
-      )}
+      <Suspense fallback={<div>Loading Navigation...</div>}>
+        {status === "success" && !maxPageIsReached && (
+          <section>
+            <Navigation />
+          </section>
+        )}
+      </Suspense>
     </>
   );
 }
