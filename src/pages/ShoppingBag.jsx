@@ -9,7 +9,8 @@ import { linkButton } from "../components/styles/navigation-button.module.scss";
 import ArticleGrid from "../components/article-grid/ArticleGrid";
 
 function Bag({ shoppingBag }) {
-  const query = "id=" + shoppingBag.join("&id=");
+  console.log(shoppingBag);
+  const query = "id=" + shoppingBag.map(({ id }) => id).join("&id=");
 
   const { status, data } = useQuery(["shoppingbag", query], getShoppingBag);
   return <ArticleGrid status={status} data={data} wide />;

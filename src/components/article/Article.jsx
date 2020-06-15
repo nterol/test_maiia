@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import styles from "../styles/article.module.scss";
 import { thumbnail } from "../styles/skeleton.module.scss";
 import ShopButton from "./ShopButton";
+import Quantity from "./Quantity";
 
 const ThumbnailWithSkeleton = ({ imgLoaded, currentRef }) =>
   imgLoaded ? (
@@ -35,7 +36,17 @@ function Article({ title, imageUrl, articleId }) {
         imgLoaded={imgLoaded}
         currentRef={thumbnailRef.current}
       />
-      <h3>{title}</h3>
+      <Quantity articleId={articleId} />
+      <div
+        style={{
+          minHeight: "4em",
+          marginTop: "2em",
+          padding: "0.5em",
+        }}
+      >
+        <h3>{title}</h3>
+      </div>
+
       <ShopButton articleId={articleId} />
     </article>
   );
