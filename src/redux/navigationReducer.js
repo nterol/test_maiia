@@ -9,14 +9,26 @@ function navigationReducer(state = initialState, { type, payload }) {
         ...state,
         maxPagesReached: payload,
       };
-    case nextPage:
-      return { ...state, currentPage: state.currentPage + 1 };
+    case nextPage: {
+      const { currentPage, maxPagesReached } = state;
+
+      return {
+        ...state,
+        currentPage:
+          maxPagesReached && currentPage === maxPagesReached
+            ? maxPagesReached
+            : currentPage + 1,
+      };
+    }
 
     case prevPage:
       return { ...state, currentPage: state.currentPage - 1 };
 
-    case goToPage:
+    case goToPage: {
+      if (state.maxPagesReached && payload >= state.maxPagesReached)
+      return { ...state, currentPage: state.maxPagesReached }
       return { ...state, currentPage: payload };
+    }
 
     default:
       return state;
