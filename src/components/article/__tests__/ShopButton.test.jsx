@@ -25,7 +25,10 @@ function setUp(shoppingBag) {
 
 describe("ShopButton test suite ", () => {
   it("should add to basket", async () => {
-    const { getByRole } = setUp([1, 2]);
+    const { getByRole } = setUp([
+      { id: 1, quantity: 2 },
+      { id: 3, quantity: 5 },
+    ]);
 
     const shopButton = getByRole("button", { name: "+" });
 
@@ -35,7 +38,11 @@ describe("ShopButton test suite ", () => {
   });
 
   it("should add to basket", async () => {
-    const { getByRole } = setUp([1, 2, 3]);
+    const { getByRole } = setUp([
+      { id: 1, quantity: 2 },
+      { id: 3, quantity: 5 },
+      { id: 2, quantity: 1 },
+    ]);
 
     const shopButton = getByRole("button", { name: "-" });
 

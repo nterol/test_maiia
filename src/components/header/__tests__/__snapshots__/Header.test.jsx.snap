@@ -60,7 +60,7 @@ exports[`Header test suite Should not have badge 2`] = `
     >
       <a
         class="badge"
-        data-count="3"
+        data-count="7"
         href="/cart"
       >
         <svg
