@@ -2,17 +2,32 @@ import { removeArticle, addArticle } from "./actionTypes";
 
 const initialState = [];
 
+const getArticleIdInBag = (state, articleId) =>
+  state.findIndex(({ id }) => articleId === id);
+
 function shoppingBagReducer(state = initialState, { type, payload }) {
   switch (type) {
     case addArticle: {
-      return [...state, payload];
+      const idInShoppingBag = getArticleIdInBag(state, payload);
+
+      if (idInShoppingBag > -1) {
+        state[idInShoppingBag].quantity += 1;
+        return [...state];
+      }
+      return [...state, { id: payload, quantity: 1 }];
     }
     case removeArticle: {
-      const n = state.filter((articleId) => articleId !== payload);
+      const idInShoppingBag = getArticleIdInBag(state, payload);
 
-      console.log(payload, state, n);
-      return n;
+      const minusOne = state[idInShoppingBag].quantity - 1;
+      if (minusOne === 0) return state.filter(({ id }) => id !== payload);
+
+      state[idInShoppingBag].quantity = minusOne;
+      return [...state];
     }
+
+    case "clear":
+      return [];
 
     default:
       return state;

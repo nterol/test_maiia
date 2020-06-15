@@ -1,5 +1,6 @@
 import React, { useCallback, memo } from "react";
 import { useDispatch, connect } from "react-redux";
+import c from "classnames";
 
 import { number, bool } from "prop-types";
 
@@ -20,16 +21,24 @@ function ShopButton({ articleId, isInShoppingBag }) {
   );
 
   return (
-    <button
-      onClick={() =>
-        isInShoppingBag
-          ? dispatchRemoveFromShoppingBag(articleId)
-          : dispatchAddToShoppingBag(articleId)
-      }
-      className={styles.test}
+    <div
+      className={c(styles.container, { [styles.notInBag]: !isInShoppingBag })}
     >
-      {isInShoppingBag ? "-" : "+"}
-    </button>
+      <button
+        onClick={() => dispatchAddToShoppingBag(articleId)}
+        className={styles.test}
+      >
+        +
+      </button>
+      {isInShoppingBag && (
+        <button
+          className={styles.test}
+          onClick={() => dispatchRemoveFromShoppingBag(articleId)}
+        >
+          -
+        </button>
+      )}
+    </div>
   );
 }
 
@@ -39,7 +48,8 @@ ShopButton.propTypes = {
 };
 
 const mapStateToProps = (state, { articleId }) => ({
-  isInShoppingBag: state.shoppingBag.findIndex((e) => e === articleId) > -1,
+  isInShoppingBag:
+    state.shoppingBag.findIndex(({ id }) => id === articleId) > -1,
 });
 
 const withConnect = connect(mapStateToProps);
