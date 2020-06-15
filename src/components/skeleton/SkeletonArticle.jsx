@@ -8,7 +8,7 @@ import { SkeletonThumbnail } from "./SkeletonThumbnail";
 const variants = {
   enter: { y: -100, opacity: 0 },
   visible: { opacity: 1, y: 0 },
-  exit: () => ({ y: 100, opacity: 0 }),
+  exit: () => ({ opacity: 0 }),
 };
 
 const SkeletonArticle = ({ simple, duration }) => (
@@ -20,7 +20,7 @@ const SkeletonArticle = ({ simple, duration }) => (
     exit="exit"
     transition={{
       duration,
-      opacity: { duration: duration + 0.5 },
+      opacity: { duration: duration },
     }}
     className={articlestyles.article}
   >

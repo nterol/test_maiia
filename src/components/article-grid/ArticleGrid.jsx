@@ -14,10 +14,9 @@ function ArticleGrid({ status, data, wide, children }) {
       <Suspense fallback={<div>There was an error...</div>}>
         {status === "error" && <Error>Could not fetch articles...</Error>}
       </Suspense>
+
       <section className={styles.grid}>
         {children}
-        <Skeletons isLoading={status === "loading"} />
-
         {status === "success" && (
           <Suspense fallback={<div>loading</div>}>
             {data.map(({ id, title, url, thumbnailUrl }) => (
@@ -30,7 +29,9 @@ function ArticleGrid({ status, data, wide, children }) {
             ))}
           </Suspense>
         )}
+        
       </section>
+      <Skeletons isLoading={status === "loading"} />
     </>
   );
 }
