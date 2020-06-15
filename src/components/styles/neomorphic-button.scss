@@ -1,7 +1,7 @@
-@mixin neomorphic-button($width, $height) {
+@mixin neomorphic-button($width, $height, $border-radius:1em) {
   overflow: hidden;
   border: none;
-  border-radius: 1em;
+  border-radius: $border-radius;
   font-size: 1rem;
   &:focus {
     outline: none;

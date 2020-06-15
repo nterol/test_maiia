@@ -7,7 +7,6 @@ import { BrowserRouter } from "react-router-dom";
 
 import Header from "../Header";
 
-
 const mockStore = configureMockStore([]);
 
 expect.extend({ toHaveAttribute });
@@ -33,11 +32,14 @@ describe("Header test suite", () => {
   });
 
   it("Should not have badge", () => {
-    const { container } = setUp([1, 2, 3]);
+    const { container } = setUp([
+      { id: 1, quantity: 2 },
+      { id: 3, quantity: 5 },
+    ]);
 
     expect(container).toMatchSnapshot();
     const linkWithBadge = container.querySelector(".badge");
 
-    expect(linkWithBadge).toHaveAttribute("data-count", "3");
+    expect(linkWithBadge).toHaveAttribute("data-count", "7");
   });
 });
