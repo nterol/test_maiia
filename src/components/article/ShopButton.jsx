@@ -47,6 +47,10 @@ ShopButton.propTypes = {
   isInShoppingBag: bool.isRequired,
 };
 
+
+// whenever I use ownProps with useSelector, heavy re-render occurs
+// avoiding them require more lines of code.
+// This approach is shorter
 const mapStateToProps = (state, { articleId }) => ({
   isInShoppingBag:
     state.shoppingBag.findIndex(({ id }) => id === articleId) > -1,
