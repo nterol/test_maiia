@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`match snapshot 1`] = `
+<div>
+  <div
+    class="errorContainer"
+    style="opacity: 0; width: 0px;"
+  >
+    <p
+      class="carved-light"
+    >
+      No articles could be fetched
+    </p>
+  </div>
+</div>
+`;

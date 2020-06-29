@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GoToPage Button matches snapshot 1`] = `
+<div>
+  <button
+    class="pageButton carved"
+    data-testid="goto-page-button"
+  >
+    9
+  </button>
+</div>
+`;

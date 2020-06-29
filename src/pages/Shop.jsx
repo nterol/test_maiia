@@ -3,11 +3,11 @@ import { useQuery } from "react-query";
 import { useSelector, useDispatch } from "react-redux";
 
 import getArticles from "../api/getArticles";
-import Navigation from "../components/navigation";
+import Navigation from "../components/organisms/navigation/Navigation";
 import { selectNavigation } from "../redux/selectors";
 import { setMaxPage } from "../redux/actionTypes";
-import GoToPageButton from "../components/navigation/GoToPageButton";
-import ArticleGrid from "../components/article-grid/ArticleGrid";
+import GoToPageButton from "../components/atoms/go-to-page-button/GoToPageButton";
+import ArticleGrid from "../components/templates/article-grid/ArticleGrid";
 
 function Shop() {
   const { currentPage, maxPagesReached } = useSelector(selectNavigation);

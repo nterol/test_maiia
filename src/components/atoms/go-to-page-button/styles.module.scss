@@ -1,0 +1,7 @@
+@import "../../styles/neomorphic-button.scss";
+
+.pageButton {
+  @include neomorphic-button(2em, 2em);
+  min-width: 2em;
+  width: auto;
+}

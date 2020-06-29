@@ -1,0 +1,15 @@
+@import "../../styles/variable.scss";
+@import "../../styles/neomorphic-button.scss";
+
+.errorContainer {
+  max-width: 45%;
+  height: auto;
+  border-radius: 0.5em;
+  text-align: center;
+  @include inward-shadow;
+  padding: 0.5em 1em;
+  p {
+    font-weight: 600;
+    color: $error;
+  }
+}

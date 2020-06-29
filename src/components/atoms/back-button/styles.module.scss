@@ -1,0 +1,7 @@
+@import "../../styles/neomorphic-button.scss";
+
+.linkButton {
+  @include neomorphic-button(4em, 3em);
+  padding: 1em;
+  margin-top: 1em;
+}

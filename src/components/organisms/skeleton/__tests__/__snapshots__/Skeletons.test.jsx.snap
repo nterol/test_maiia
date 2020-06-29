@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<section
+  className="grid"
+  style={Object {}}
+>
+  <article
+    className="card"
+    style={
+      Object {
+        "opacity": 0,
+        "transform": "translateY(-100px) translateZ(0)",
+      }
+    }
+  >
+    <hr
+      className="thumbnail"
+    />
+    <hr />
+    <hr />
+    <hr />
+  </article>
+  <article
+    className="card"
+    style={
+      Object {
+        "opacity": 0,
+        "transform": "translateY(-100px) translateZ(0)",
+      }
+    }
+  >
+    <hr
+      className="thumbnail"
+    />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+  </article>
+  <article
+    className="card"
+    style={
+      Object {
+        "opacity": 0,
+        "transform": "translateY(-100px) translateZ(0)",
+      }
+    }
+  >
+    <hr
+      className="thumbnail"
+    />
+    <hr />
+  </article>
+  <article
+    className="card"
+    style={
+      Object {
+        "opacity": 0,
+        "transform": "translateY(-100px) translateZ(0)",
+      }
+    }
+  >
+    <hr
+      className="thumbnail"
+    />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+  </article>
+  <article
+    className="card"
+    style={
+      Object {
+        "opacity": 0,
+        "transform": "translateY(-100px) translateZ(0)",
+      }
+    }
+  >
+    <hr
+      className="thumbnail"
+    />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+  </article>
+</section>
+`;

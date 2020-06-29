@@ -1,0 +1,12 @@
+@import "../../styles/neomorphic-button.scss";
+
+.navigationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & > {
+    * + * {
+      margin-left: 2em;
+    }
+  }
+}
