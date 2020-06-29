@@ -6,7 +6,7 @@ exports[`should match snapshot 1`] = `
   style={Object {}}
 >
   <article
-    className="article"
+    className="card"
     style={
       Object {
         "opacity": 0,
@@ -17,18 +17,12 @@ exports[`should match snapshot 1`] = `
     <hr
       className="thumbnail"
     />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
+    <hr />
+    <hr />
+    <hr />
   </article>
   <article
-    className="article"
+    className="card"
     style={
       Object {
         "opacity": 0,
@@ -39,21 +33,13 @@ exports[`should match snapshot 1`] = `
     <hr
       className="thumbnail"
     />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
   </article>
   <article
-    className="article"
+    className="card"
     style={
       Object {
         "opacity": 0,
@@ -64,12 +50,10 @@ exports[`should match snapshot 1`] = `
     <hr
       className="thumbnail"
     />
-    <hr
-      className="hr"
-    />
+    <hr />
   </article>
   <article
-    className="article"
+    className="card"
     style={
       Object {
         "opacity": 0,
@@ -80,27 +64,15 @@ exports[`should match snapshot 1`] = `
     <hr
       className="thumbnail"
     />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
   </article>
   <article
-    className="article"
+    className="card"
     style={
       Object {
         "opacity": 0,
@@ -111,21 +83,11 @@ exports[`should match snapshot 1`] = `
     <hr
       className="thumbnail"
     />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
-    <hr
-      className="hr"
-    />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
   </article>
 </section>
 `;

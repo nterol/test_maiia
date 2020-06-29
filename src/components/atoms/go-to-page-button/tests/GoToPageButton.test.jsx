@@ -1,17 +1,22 @@
-import setUpWithProvider from "../../../helpers/jest/setUpWithProvider";
+import setUpWithProvider from "../../../../helpers/jest/setUpWithProvider";
 
 import GoToPageButton from "../GoToPageButton";
 
-const setUpWithComponent = setUpWithProvider(GoToPageButton, { page: 9 });
+let setUpWithComponent;
 
 test("GoToPage Button matches snapshot", () => {
+  setUpWithComponent = setUpWithProvider(GoToPageButton, { page: 9 });
   const { container } = setUpWithComponent({});
 
   expect(container).toMatchSnapshot();
 });
 
 test("GoToPage Button matches snapshot with children", () => {
-  const { getByTestId } = setUpWithProvider({});
+  setUpWithComponent = setUpWithProvider(GoToPageButton, {
+    page: 9,
+    children: "...",
+  });
+  const { getByTestId } = setUpWithComponent({});
 
   const button = getByTestId("goto-page-button");
 

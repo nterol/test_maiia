@@ -1,7 +1,7 @@
 import React from "react";
 import { render, wait, fireEvent, cleanup, waitForElement } from "@testing-library/react";
 import configureMockStore from "redux-mock-store";
-import Navigation from "../../../navigation";
+import Navigation from "../Navigation";
 import { Provider } from "react-redux";
 
 import * as reduxHook from "react-redux";

@@ -8,8 +8,6 @@ import styles from "./styles.module.scss";
 import { addArticle, removeArticle } from "../../../redux/actionTypes";
 
 export function ShopButton({ articleId, isInShoppingBag }) {
-
-  console.log("RERENDER", articleId)
   const dispatch = useDispatch();
 
   const dispatchAddToShoppingBag = useCallback(
