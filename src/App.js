@@ -6,7 +6,7 @@ import makeStore from "./redux/store";
 import styles from "./components/styles/layout.module.scss";
 import ShoppingBag from "./pages/ShoppingBag";
 import Shop from "./pages/Shop";
-import Header from "./components/header/Header";
+import Header from "./components/organisms/header/Header";
 import { PersistGate } from "redux-persist/integration/react";
 
 

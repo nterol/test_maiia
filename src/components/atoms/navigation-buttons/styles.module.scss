@@ -1,0 +1,5 @@
+@import "../../styles/neomorphic-button.scss";
+
+.navButton {
+  @include neomorphic-button(4em, 2em);
+}

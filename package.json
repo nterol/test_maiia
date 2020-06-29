@@ -28,7 +28,9 @@
     "start:all": "run-p start server",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,10 +48,19 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-create-react-app": "^3.1.2",
+    "@storybook/react": "^5.3.19",
     "@testing-library/react": "^9.5.0",
+    "css-loader": "^3.6.0",
     "react-test-renderer": "^16.13.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-mock-store": "^1.5.4",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
     "typescript": "^3.9.5"
   }
 }
