@@ -1,9 +1,7 @@
 import React from "react";
-import { motion } from "framer-motion";
 
-// import styles from "../styles/skeleton.module.scss";
-import styles from "./styles.module.scss";
 import SkeletonThumbnail from "../../atoms/skeleton-thumbnail/SkeletonThumbnail";
+import MotionCard from "../../atoms/motion-card/MotionCard";
 
 const variants = {
   enter: { y: -100, opacity: 0 },
@@ -12,7 +10,7 @@ const variants = {
 };
 
 const SkeletonArticle = ({ simple, duration }) => (
-  <motion.article
+  <MotionCard
     whileHover={{ scale: 1.05 }}
     initial="enter"
     variants={variants}
@@ -22,16 +20,12 @@ const SkeletonArticle = ({ simple, duration }) => (
       duration,
       opacity: { duration: duration },
     }}
-    className={styles.card}
   >
     <SkeletonThumbnail />
     {Array.from({ length: simple }).map((_, i) => (
-      <hr
-        key={i}
-        // className={styles.hr}
-      />
+      <hr key={i} />
     ))}
-  </motion.article>
+  </MotionCard>
 );
 
 export default SkeletonArticle;

@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
 
-import styles from "./styles.module.scss";
 import ThumbnailLoader from "../../molecules/thumbnail-loader/ThumbnailLoader";
 import ShopButton from "../../molecules/shop-button/ShopButton";
 import Quantity from "../../atoms/quantity/Quantity";
+import MotionCard from "../../atoms/motion-card/MotionCard";
 
 function Article({ title, imageUrl, articleId }) {
   const thumbnailRef = useRef(null);
@@ -19,12 +18,11 @@ function Article({ title, imageUrl, articleId }) {
   }, [imageUrl]);
 
   return (
-    <motion.article
+    <MotionCard
       whileHover={{ scale: 1.05 }}
       initial={{ y: 50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={styles.article}
     >
       <ThumbnailLoader
         imgLoaded={imgLoaded}
@@ -42,7 +40,7 @@ function Article({ title, imageUrl, articleId }) {
       </div>
 
       <ShopButton articleId={articleId} />
-    </motion.article>
+    </MotionCard>
   );
 }
 
