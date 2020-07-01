@@ -1,5 +1,10 @@
+@import "../../styles/variable.scss";
+
 .quantityContainer {
-    padding: 0 1em;
-    font-weight: 600;
-    font-size: 0.75em;
-  }
+  max-width: 10rem;
+  padding: 0 1em;
+  border: 0.5px solid $color;
+  border-radius: 5px;
+  font-weight: 800;
+  font-size: 1em;
+}
