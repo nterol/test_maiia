@@ -1,6 +1,6 @@
 import { setMaxPage, nextPage, prevPage, goToPage } from "./actionTypes";
 
-const initialState = { currentPage: 10000, maxPagesReached: null };
+const initialState = { currentPage: 1, maxPagesReached: null };
 
 function navigationReducer(state = initialState, { type, payload }) {
   switch (type) {
